@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>언어순화 필터 · DM 2창 (Flask / badwords.txt)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="wrap">
+    <div class="title">언어순화 프로그램</div>
+
+    <div class="grid">
+      <!-- A 화면 -->
+      <div class="phone">
+        <div class="screen">
+          <div class="topbar">
+            <div class="left">
+              <div class="av a">A</div>
+              <div class="name">사용자 A</div>
+            </div>
+            <!-- ✅ 상단 대체어 입력칸 (A가 받을 때 쓰는 값) -->
+            <div class="right">
+              <input id="repA" type="text" class="pill" value="순화" placeholder="A 수신 대체어">
+              <label class="chk"><input type="checkbox" id="fuzzyA" checked> 퍼지</label>
+            </div>
+          </div>
+
+          <div id="chatA" class="chat"></div>
+
+          <div class="composer">
+            <textarea id="outA" placeholder="메시지 보내기…"></textarea>
+            <button id="sendA" class="send">A → B</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- B 화면 -->
+      <div class="phone">
+        <div class="screen">
+          <div class="topbar">
+            <div class="left">
+              <div class="av b">B</div>
+              <div class="name">사용자 B</div>
+            </div>
+            <!-- ✅ 상단 대체어 입력칸 (B가 받을 때 쓰는 값) -->
+            <div class="right">
+              <input id="repB" type="text" class="pill" value="*****" placeholder="B 수신 대체어">
+              <label class="chk"><input type="checkbox" id="fuzzyB" checked> 퍼지</label>
+            </div>
+          </div>
+
+          <div id="chatB" class="chat"></div>
+
+          <div class="composer">
+            <textarea id="outB" placeholder="메시지 보내기…"></textarea>
+            <button id="sendB" class="send">B → A</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ 하단 고정 대체어 패널(좁은 화면에서도 항상 보이게) -->
+    <div class="repl-panel">
+      <div class="repl-col">
+        <div class="label">A가 받을 때 대체어</div>
+        <input id="repA_bottom" class="pill wide" placeholder="예: 순화" value="순화">
+        <label class="chk"><input type="checkbox" id="fuzzyA_bottom" checked> 퍼지</label>
+      </div>
+      <div class="repl-col">
+        <div class="label">B가 받을 때 대체어</div>
+        <input id="repB_bottom" class="pill wide" placeholder="예: *****" value="*****">
+        <label class="chk"><input type="checkbox" id="fuzzyB_bottom" checked> 퍼지</label>
+      </div>
+      <div class="hint">※ 금칙어 목록은 <code>badwords.txt</code>에서 관리 (저장 시 즉시 반영)</div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
