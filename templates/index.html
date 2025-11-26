@@ -19,9 +19,12 @@
               <div class="av a">A</div>
               <div class="name">사용자 A</div>
             </div>
-            <!-- ✅ 상단 대체어 입력칸 (A가 받을 때 쓰는 값) -->
+            <!-- B가 보낸 메시지를 A가 볼 때 적용 -->
             <div class="right">
-              <input id="repA" type="text" class="pill" value="순화" placeholder="A 수신 대체어">
+              <span class="tag">B → A 수신</span>
+              <input id="repA" type="text" class="pill" value="순화"
+                     placeholder="A 화면에 보일 단어"
+                     title="B가 보낸 메시지를 A가 볼 때 이 단어로 치환">
               <label class="chk"><input type="checkbox" id="fuzzyA" checked> 퍼지</label>
             </div>
           </div>
@@ -43,9 +46,12 @@
               <div class="av b">B</div>
               <div class="name">사용자 B</div>
             </div>
-            <!-- ✅ 상단 대체어 입력칸 (B가 받을 때 쓰는 값) -->
+            <!-- A가 보낸 메시지를 B가 볼 때 적용 -->
             <div class="right">
-              <input id="repB" type="text" class="pill" value="*****" placeholder="B 수신 대체어">
+              <span class="tag">A → B 수신</span>
+              <input id="repB" type="text" class="pill" value="*****"
+                     placeholder="B 화면에 보일 단어"
+                     title="A가 보낸 메시지를 B가 볼 때 이 단어로 치환">
               <label class="chk"><input type="checkbox" id="fuzzyB" checked> 퍼지</label>
             </div>
           </div>
@@ -60,19 +66,19 @@
       </div>
     </div>
 
-    <!-- ✅ 하단 고정 대체어 패널(좁은 화면에서도 항상 보이게) -->
+    <!-- 하단 고정 대체어 패널 -->
     <div class="repl-panel">
       <div class="repl-col">
-        <div class="label">A가 받을 대체어</div>
-        <input id="repA_bottom" class="pill wide" placeholder="예: 순화" value="순화">
+        <div class="label"><span class="badge">B → A</span> 받을 때 바꿀 단어</div>
+        <input id="repA_bottom" class="pill wide" placeholder="A 화면에 보일 단어 (예: 순화)" value="순화">
         <label class="chk"><input type="checkbox" id="fuzzyA_bottom" checked> 퍼지</label>
       </div>
       <div class="repl-col">
-        <div class="label">B가 받을 대체어</div>
-        <input id="repB_bottom" class="pill wide" placeholder="예: *****" value="*****">
+        <div class="label"><span class="badge">A → B</span> 받을 때 바꿀 단어</div>
+        <input id="repB_bottom" class="pill wide" placeholder="B 화면에 보일 단어 (예: *****)" value="*****">
         <label class="chk"><input type="checkbox" id="fuzzyB_bottom" checked> 퍼지</label>
       </div>
-      <div class="hint">※ 금칙어 목록은 <code>badwords.txt</code>에서 관리 (저장 시 즉시 반영)</div>
+      <div class="hint">※ 원문은 보낸 사람 화면에 그대로, <b>상대 화면</b>에는 위에 적은 단어로 치환되어 보입니다. 금칙어 목록은 <code>badwords.txt</code>에서 관리(저장 시 즉시 반영).</div>
     </div>
   </div>
 
